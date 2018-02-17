@@ -1,0 +1,45 @@
+<article class="blog">
+    <p class="blog-title"><%- page.title %></p>
+    <p class="blog-date"><%- date(page.date, "YYYY") %>年<%- date(page.date, "MM") %>月<%- date(page.date, "DD") %>日</p>
+    <div class="blog-content"><%- page.content %></div>
+    <div class="blog-action flex flex-between">
+        <div class="blog-other">
+            <%- list_tags(page.tags,{
+                show_count: false,
+                class: 'blog-tag'
+            }) %>
+        </div>
+    </div>
+
+</article>
+<% if (page.prev || page.next){ %>
+<div class="blog-button flex flex-center">
+    <% if (page.prev){ %>
+    <a href="<%- url_for(page.prev.path) %>">上一篇:《<%- page.prev.title %>》</a>
+    <% } %>
+    <% if (page.next){ %>
+    <a href="<%- url_for(page.next.path) %>">下一篇:《<%- page.next.title %>》</a>
+    <% } %>
+</div>
+<% } %>
+<% if(theme.comment) {%>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = '<%=theme.disqus_shortname%>';
+        var disqus_identifier = '<%=page.path%>';
+        var disqus_title = '<%=page.title%>';
+        var disqus_url = '<%=page.permalink%>';
+        function run_disqus_script(disqus_script){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }
+        run_disqus_script('count.js');
+        <% if(page.comments) {%>
+        run_disqus_script('embed.js');
+        <%}%>
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+<% } %>

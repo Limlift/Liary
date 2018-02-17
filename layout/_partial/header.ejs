@@ -1,0 +1,22 @@
+<div class="header">
+    <div class="container flex flex-between">
+        <div class="navigation">
+			<% for (name in theme.menu) {%>
+				<% if (name == 'Home' && is_home()) {%>
+				<a href="<%- url_for(theme.menu[name]) %>" class="menu menu-active"><%- __('Menu.' + name) %></a>
+				<% }else if (name == 'Home' && is_post()) { %>
+				<a href="<%- url_for(theme.menu[name]) %>" class="menu menu-active"><%- __('Menu.' + name) %></a>
+				<% }else if (name == 'Archives' && is_archive()) { %>
+				<a href="<%- url_for(theme.menu[name]) %>" class="menu menu-active"><%- __('Menu.' + name) %></a>
+				<% }else if (name == 'Archives' && is_tag()) { %>
+				<a href="<%- url_for(theme.menu[name]) %>" class="menu menu-active"><%- __('Menu.' + name) %></a>
+				<% }else if (name == 'About' && is_category('about')) { %>
+				<a href="<%- url_for(theme.menu[name]) %>" class="menu menu-active"><%- __('Menu.' + name) %></a>
+				<% }else { %>
+				<a href="<%- url_for(theme.menu[name]) %>" class="menu"><%- __('Menu.' + name) %></a>
+				<% } %>
+			<% } %>
+        </div>
+        <div class="action"></div>
+    </div>
+</div>

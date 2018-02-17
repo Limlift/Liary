@@ -1,0 +1,24 @@
+<article class="archieve">
+	<% if (is_archive() || is_tag()) { %>
+	<div class="item flex flex-aligncenter">
+        <div class="archieve-time">
+        	<% if (is_archive()) { %>
+            <p class="archieve-year"><%= page.year %></p>
+            <% } %>
+            <% if (is_tag()) { %>
+            <p class="archieve-year"><%= page.tag %></p>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
+	<% page.posts.each(function (post) { %>
+    <div class="item flex flex-aligncenter">
+        <div class="archieve-time">
+            <p class="archieve-date"><%- date(post.date, "YYYY") %>年<%- date(post.date, "MM") %>月<%- date(post.date, "DD") %>日</p>
+        </div>
+        <div class="archieve-link">
+            <a href="<%- url_for(post.path) %>" class="archieve-title"><%= post.title %></a>
+        </div>
+    </div>
+    <% }) %>
+</article>
