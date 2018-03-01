@@ -3,6 +3,6 @@ menu:
   Archives: /archives
   About: /About
 comment: true
-disqus_shortname: limlift
-livere_uid: MTAyMC8zNDE5Mi8xMDcyOQ==
-favicon: /images/favicon.ico
+disqus_shortname: your_disqus_id
+livere_uid: your_livere_id
+favicon: your_favicon_path
