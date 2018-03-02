@@ -14,13 +14,13 @@
     <%- partial('_partial/footer', {}, {cache: true}) %>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114280553-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<%=theme.google_analytics_id%>"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-114280553-1');
+  gtag('config', '<%=theme.google_analytics_id%>');
 </script>
 
 </body>
