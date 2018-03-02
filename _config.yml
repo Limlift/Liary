@@ -3,6 +3,7 @@ menu:
   Archives: /archives
   About: /About
 comment: true
+google_analytic_id: your_ga_id
 disqus_shortname: your_disqus_id
 livere_uid: your_livere_id
 favicon: your_favicon_path
